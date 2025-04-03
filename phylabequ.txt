@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Equipment Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #337ab7;
+            color: white;
+            font-size: 16px;
+        }
+        .damage-label {
+            display: inline-block;
+            background-color: red;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 6px 15px;
+            border-radius: 20px; /* Makes it oval */
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .damage-label:hover {
+            background-color: darkred;
+        }
+    </style>
+    <script>
+        function reduceCount(element) {
+            let row = element.parentElement.parentElement;
+            let countCell = row.cells[1];
+            let count = parseInt(countCell.innerText);
+            if (count > 0) {
+                countCell.innerText = count - 1;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>LAB EQUIPMENT TRACKER</h2>
+    <table>
+        <tr>
+            <th>Equipment</th>
+            <th>Count</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Test Tube</td>
+            <td>20</td>
+            <td><span class="damage-label" onclick="reduceCount(this)">damage</span></td>
+        </tr>
+        <tr>
+            <td>Conical Flask</td>
+            <td>25</td>
+            <td><span class="damage-label" onclick="reduceCount(this)">damage</span></td>
+        </tr>
+        <tr>
+            <td>Iodine Flask</td>
+            <td>15</td>
+            <td><span class="damage-label" onclick="reduceCount(this)">damage</span></td>
+        </tr>
+        <tr>
+            <td>Burette</td>
+            <td>20</td>
+            <td><span class="damage-label" onclick="reduceCount(this)">damage</span></td>
+        </tr>
+        <tr>
+            <td>Pipette</td>
+            <td>20</td>
+            <td><span class="damage-label" onclick="reduceCount(this)">damage</span></td>
+        </tr>
+        <tr>
+            <td>Stand</td>
+            <td>20</td>
+            <td><span class="damage-label" onclick="reduceCount(this)">damage</span></td>
+        </tr>
+    </table>
+</body>
+</html>
